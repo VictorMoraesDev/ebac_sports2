@@ -22,10 +22,12 @@ const ProdutosComponent = ({
     return IdsDosFavoritos.includes(produtoId)
   }
 
+  const { data: Produtos } = useGetJogosQuery()
+
   return (
     <>
       <S.Produtos>
-        {produtos.map((produto) => (
+        {Produtos?.map((produto) => (
           <Produto
             estaNosFavoritos={produtoEstaNosFavoritos(produto as ProdutoType)}
             key={produto.id}
